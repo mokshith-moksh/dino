@@ -3,12 +3,13 @@ import useProject from "@/hooks/use-project";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import CommitLog from "./commit-log";
 
 const Dashboard = () => {
   const { project } = useProject();
 
   return (
-    <div>
+    <div className="">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-y-4">
         {/* githublink */}
         <div className="bg-primary flex w-fit items-center rounded-md px-4 py-3">
@@ -31,14 +32,16 @@ const Dashboard = () => {
         <div className="flex items-center gap-4">
           TeamMember InviteMember ArchiveMember
         </div>
-      </div>
-      <div className="mt-4">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-5">
-          AskQuestions MeetingCards
+
+        <div className="mt-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-5">
+            AskQuestions MeetingCards
+          </div>
+        </div>
+        <div className="mt-8 w-full overscroll-x-auto">
+          <CommitLog />
         </div>
       </div>
-      <div className="mt-8"></div>
-      CommitLogs
     </div>
   );
 };

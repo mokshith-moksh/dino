@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
   return (
     <SidebarProvider>
       <AppSideBar />
-      <main className="m-2 w-full">
+      <main className="m-2 w-full overflow-hidden">
         <div className="border-sidebar-border bg-sidebar mb-4 flex items-center gap-2 rounded-md border px-2 py-4 shadow">
           {/* <AppSideBar /> */}
           <SidebarTrigger />
@@ -18,7 +18,7 @@ const Layout = ({ children }: Props) => {
           <UserButton />
         </div>
         <div className="h-4"></div>
-        <div className="border-sidebar-border bg-sidebar h-[calc(100vh-7rem)] overflow-y-auto rounded-md border p-4 shadow">
+        <div className="border-sidebar-border bg-sidebar h-[calc(100vh-7rem)] overflow-x-hidden overflow-y-auto rounded-md border p-4 shadow">
           {children}
         </div>
       </main>

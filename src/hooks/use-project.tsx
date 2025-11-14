@@ -7,7 +7,13 @@ const UseProject = () => {
   >("Dino-selectedProjectId", null);
   if (!projects) return { projects: [] };
   const project = projects.find((prj) => prj.id == selectedProjectId);
-  return { projects, project, setSelectedProjectId, selectedProjectId };
+  return {
+    projects,
+    project,
+    projectId: project!.id,
+    setSelectedProjectId,
+    selectedProjectId,
+  };
 };
 
 export default UseProject;

@@ -27,6 +27,8 @@ import { usePathname } from "next/navigation";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
 import UseProject from "@/hooks/use-project";
+import { useRouter } from "next/navigation";
+
 const iteams = [
   {
     title: "Dashboard",
@@ -54,6 +56,7 @@ const AppSideBar = () => {
   const pathName = usePathname();
   const { open } = useSidebar();
   const { projects, selectedProjectId, setSelectedProjectId } = UseProject();
+  const navigate = useRouter();
   return (
     <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader>
@@ -93,7 +96,10 @@ const AppSideBar = () => {
                 <SidebarMenuItem key={project.id}>
                   <SidebarMenuButton asChild>
                     <div
-                      onClick={() => setSelectedProjectId?.(project.id)}
+                      onClick={() => {
+                        setSelectedProjectId?.(project.id);
+                        navigate.push("/dashboard");
+                      }}
                       className={cn("flex items-center")}
                     >
                       <div
